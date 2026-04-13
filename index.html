@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>orbita</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0a0a2a, #000);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 25px;
+      background: #111144;
+      box-shadow: 0 0 20px #000;
+    }
+
+    h1 {
+      color: #00ccff;
+      margin: 0;
+      font-size: 40px;
+    }
+
+    .subtitulo {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .botoes {
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #00ccff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00aacc;
+      transform: scale(1.05);
+    }
+
+    .player {
+      margin: 30px auto;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #000;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌌 orbita</h1>
+  <div class="subtitulo">canais que você pode assistir</div>
+
+  <div class="botoes">
+    <button onclick="trocarCanal('nick836103')">Nick836103</button>
+    <button onclick="trocarCanal('tvglobinhoredeglobio')">TV Globinho</button>
+  </div>
+</header>
+
+<div class="player">
+  <iframe id="player"
+    src="https://player.twitch.tv/?channel=nick836103&parent=twitch.tv&autoplay=true&muted=true">
+  </iframe>
+</div>
+
+<script>
+function trocarCanal(canal) {
+  const player = document.getElementById("player");
+  player.src = `https://player.twitch.tv/?channel=${canal}&parent=twitch.tv&autoplay=true&muted=true`;
+}
+</script>
+
+</body>
+</html>
