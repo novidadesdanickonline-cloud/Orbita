@@ -8,34 +8,36 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: black;
+      background: radial-gradient(circle at top, #0a0a2a, #000);
       color: white;
       text-align: center;
     }
 
     header {
-      padding: 15px;
+      padding: 25px;
       background: #111144;
     }
 
     h1 {
       color: #00ccff;
       margin: 0;
+      font-size: 40px;
     }
 
     .subtitulo {
-      margin-top: 5px;
-      font-size: 16px;
+      margin-top: 10px;
+      font-size: 18px;
       color: #ccc;
     }
 
     .botoes {
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     button {
-      margin: 5px;
-      padding: 10px 15px;
+      margin: 8px;
+      padding: 12px 20px;
+      font-size: 15px;
       border: none;
       border-radius: 10px;
       background: #00ccff;
@@ -43,19 +45,16 @@
       font-weight: bold;
     }
 
-    button:hover {
-      background: #00aacc;
-    }
-
     .player {
-      width: 100%;
-      height: calc(100vh - 140px);
+      margin: 30px auto;
+      width: 95%;
+      max-width: 900px;
     }
 
     iframe {
       width: 100%;
-      height: 100%;
-      border: none;
+      height: 450px;
+      border-radius: 15px;
     }
   </style>
 </head>
@@ -72,11 +71,15 @@
     <button onclick="trocarCanal('nickelodeonbrasil309873')">Nickelodeon Brasil</button>
     <button onclick="trocarCanal('channelg4tv')">G4TV</button>
   </div>
+
+  <button onclick="fullScreen()">📺 Tela Cheia</button>
 </header>
 
 <div class="player">
   <iframe id="player"
-    src="https://player.twitch.tv/?channel=nick836103&parent=novidadesdanickonline-cloud.github.io&autoplay=true&muted=true">
+    src="https://player.twitch.tv/?channel=nick836103&parent=novidadesdanickonline-cloud.github.io&autoplay=true&muted=true"
+    allowfullscreen
+    allow="fullscreen">
   </iframe>
 </div>
 
@@ -84,6 +87,13 @@
 function trocarCanal(canal) {
   const player = document.getElementById("player");
   player.src = `https://player.twitch.tv/?channel=${canal}&parent=novidadesdanickonline-cloud.github.io&autoplay=true&muted=true`;
+}
+
+function fullScreen() {
+  const iframe = document.getElementById("player");
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen();
+  }
 }
 </script>
 
